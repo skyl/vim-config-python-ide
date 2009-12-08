@@ -30,7 +30,7 @@ Current details of basic
 
 * Folding
 
-    * Just going to use indentation folds from the default .vimrc
+    * Just going to use indentation folds from the default .vimrc::
 
         :help fold
 
@@ -43,13 +43,13 @@ Current details of basic
 
 * Code completion
 
-    * Going with regular http://www.vim.org/scripts/script.php?script_id=1542
+    * Going with regular http://www.vim.org/scripts/script.php?script_id=1542::
 
         still <c-x><c-o> for omnicomplete (may remap to <s-tab>)
         still <c-p> for keyword completion (may remap to <tab>)
 
     * :help preview
 
-    To see how to do things like close the preview viewport (:pc)
+        To see how to do things like close the preview viewport (:pc)
 
 
