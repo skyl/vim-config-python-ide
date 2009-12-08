@@ -113,13 +113,6 @@ setlocal softtabstop=4
 " setlocal expandtab
 " setlocal smartindent
 " set noic "no ignore case
-"set t_Co=256
-
-
-"""""""""""""""""""""""""""""""
-" I should make this a plugin ... tries to 
-" get settings from pwd else goes with a default
-"""""""""""""""""""""""""""""""
-
+" set t_Co=256
 
 
