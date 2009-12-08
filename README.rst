@@ -52,4 +52,32 @@ Current details of basic
 
         To see how to do things like close the preview viewport (:pc)
 
+* Django settings:
+
+  There are two ways that you can get the settings module imported and be able to omnicomplete
+  modules that rely on ``DJANGO_SETTINGS_MODULE``::  
+  
+        1) You can be in an environment with django and settings.py in the CWD, parent or grandparent
+
+        2) You can be inside a virtualenv that contains pinax
+
+
+supertab branch
+===============
+
+The same as above except that code completion is context sensitive and you
+can get it with <tab>.  So, if you are in insert mode and you have::
+
+    import django
+
+you can start typing django and complete it with keyword completion::
+
+   dja<tab>
+
+then you can type ``.`` and ``<tab>`` again and get omnicompletion::
+
+    django.c<tab>
+
+this will give you a dropdown between ``conf``, ``core`` and ``contrib``
+
 
