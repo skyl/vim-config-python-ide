@@ -96,7 +96,7 @@ set nofoldenable
 """"""""""""""""""""""""""""""""
 
 filetype plugin on
-set iskeyword+=.
+"set iskeyword+=.
 
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -115,4 +115,5 @@ setlocal softtabstop=4
 " set noic "no ignore case
 " set t_Co=256
 
-
+set cursorline
+set laststatus=2
