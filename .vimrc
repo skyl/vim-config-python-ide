@@ -117,3 +117,7 @@ setlocal softtabstop=4
 
 set cursorline
 set laststatus=2
+"set clipboard=unnamed
+"set go+=a
+noremap y "+y
+set paste
