@@ -106,7 +106,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " inoremap <Nul> <C-x><C-o>
 
 " setlocal tabstop=4
-setlocal softtabstop=4
+set softtabstop=4
 " setlocal shiftwidth=4
 " setlocal textwidth=80
 " setlocal smarttab
@@ -119,5 +119,6 @@ set cursorline
 set laststatus=2
 "set clipboard=unnamed
 "set go+=a
-noremap y "+y
-set paste
+vnoremap y "+y
+"set paste
+se nu
