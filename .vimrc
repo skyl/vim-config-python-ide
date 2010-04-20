@@ -17,7 +17,7 @@
 
 " Number of spaces that a pre-existing tab is equal to.
 " For the amount of space used for a new tab use shiftwidth.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html set tabstop=8
+au BufRead,BufNewFile *py,*pyw,*.c,*.h,*html,*js set tabstop=8
 
 " What to use for an indent.
 " This will affect Ctrl-T and 'autoindent'.
@@ -46,9 +46,12 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
-" Python: 79 
+" Python: No limit
 " C: 79
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h set textwidth=79
+" Uncomment this if you want to limit your textwidth in python
+" can be very annoying ..
+" au BufRead,BufNewFile *.py,*.pyc set textwidth=79
+au BufRead,BufNewFile *.c,*.h set textwidth=79
 
 " Turn off settings in 'formatoptions' relating to comment formatting.
 " - c : do not automatically insert the comment leader when wrapping based on
