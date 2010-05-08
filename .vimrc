@@ -122,7 +122,14 @@ set cursorline
 set laststatus=2
 "set clipboard=unnamed
 "set go+=a
-vnoremap y "+y
+"vnoremap y "+y
 "set paste
 se nu
 set mouse=a
+set background=dark
+
+"http://vim.wikia.com/wiki/In_line_copy_and_paste_to_system_clipboard
+"sudo apt-get install xclip
+vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
+nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+
