@@ -133,3 +133,10 @@ set background=dark
 vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
 nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
+
+"This should be in /etc/vim/vimrc or wherever you global vimrc is.
+"But, if not, I for one can't live without it.
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
