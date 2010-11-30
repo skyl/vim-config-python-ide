@@ -140,3 +140,11 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" for things that are particular to this user/computer,
+" you can add commands to a .local_vim file in your home dir
+" and uncommenting the following
+" source .local_vim
+
+set vb
+
+
