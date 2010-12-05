@@ -150,3 +150,5 @@ set vb
 " source ~/.local_vim
 
 
+" http://blog.roseman.org.uk/2010/04/21/vim-autocomplete-django-and-virtualenv/
+
