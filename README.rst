@@ -1,36 +1,52 @@
 Python-Vim-IDE
 ==============
 
-There will be multiple branches.  The first branch will be the basic branch.
-The basic branch will stay true to vim defaults, adding PEP008 and basic
-onmicomplete, folding and path-hacking for django settings with few/no remaps.
-I will branch from here with a more featureful config with nerdtree, supertab and more.
-
-The idea will be that one can check it out and symlink to $VIMRUNTIME and change
-configs just by checking out a different branch.
+This is my vim config for hacking on Python. I hope you like it.
+I use default vim and SublimeText2 a lot as well.
 
 
-Current details of basic
-========================
+Installation
+============
+
+Back up your ~/.vimrc and ~/.vim directory (or in you $VIMRUNTIME if not in home dir).
+Checkout this project somewhere.
+Symlink the .vimrc and .vim directory into your home directory (or $VIMRUNTIME).
+
+
+Details
+=======
 
 * Syntax highlighting
 
-    * (http://www.vim.org/scripts/script.php?script_id=790)
-    * now in .vim/syntax/python.vim
+    * (http://www.vim.org/scripts/script.php?script_id=790) in .vim/syntax/python.vim
 
-* Indention
+* Tab completion (http://www.vim.org/scripts/script.php?script_id=1643)
 
-    * simple use of the following works::
+    * Tab after a non-whitespace character (except those below) does keyword completion <c-p>
 
-            if has("autocmd")
-              filetype plugin indent on
-            endif
+    * Tab after `/` does filename completion <c-x><c-f>
 
-    I uncommented this from my global /etc/vim/vimrc
+    * Tab after `.` does omnicompletion (http://www.vim.org/scripts/script.php?script_id=1542)
+
+        * <leader>q (insert or command mode) will close the preview port. (:pc)
+
+        * <S-Tab> (shift+tab) will do regular keyword completion after `.` instead of omnicompletion.
+
+        * Enter a virtualenv, your python path should be respected (http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide#virtualenv)
+
+* Flake8
+
+    * https://github.com/alfredodeza/khuno.vim
+
+        * You will need to install flake8 with pep8 and pyflakes globally to get this.
+
+        * this plugin rocks.
+
+        * hit <F7> or fn+F7 as a shortcut to Khuno show.
 
 * Folding
 
-    * Just going to use indentation folds from the default .vimrc::
+    * Just using indentation folds from the default .vimrc (I don't use folding)::
 
         :help fold
 
@@ -41,43 +57,13 @@ Current details of basic
 
         Everything is unfolded to start.
 
-* Code completion
-
-    * Going with regular http://www.vim.org/scripts/script.php?script_id=1542::
-
-        still <c-x><c-o> for omnicomplete (may remap to <s-tab>)
-        still <c-p> for keyword completion (may remap to <tab>)
-
-    * :help preview
-
-        To see how to do things like close the preview viewport (:pc)
-
 * Django settings:
 
-  There are two ways that you can get the settings module imported and be able to omnicomplete
-  modules that rely on ``DJANGO_SETTINGS_MODULE``::  
-  
-        1) You can be in an environment with django and settings.py in the CWD, parent or grandparent
+    Before launching vim (or mvim) just set the environment variable::
 
-        2) You can be inside a virtualenv that contains pinax
+        export DJANGO_SETTINGS_MODULE="myproject.settings"
 
+TODO::
 
-supertab branch
-===============
-
-The same as above except that code completion is context sensitive and you
-can get it with <tab>.  So, if you are in insert mode and you have::
-
-    import django
-
-you can start typing django and complete it with keyword completion::
-
-   dja<tab>
-
-then you can type ``.`` and ``<tab>`` again and get omnicompletion::
-
-    django.c<tab>
-
-this will give you a dropdown between ``conf``, ``core`` and ``contrib``
-
+    Probably should look at this pathogen thing and Command+T or somesuch.
 

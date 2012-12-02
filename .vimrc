@@ -98,6 +98,7 @@ set nofoldenable
 " END http://svn.python.org/projects/python/trunk/Misc/Vim/vimrc
 """"""""""""""""""""""""""""""""
 
+filetype on
 filetype plugin on
 "set iskeyword+=.
 
@@ -128,8 +129,9 @@ se nu
 set mouse=a
 set background=dark
 
-"http://vim.wikia.com/wiki/In_line_copy_and_paste_to_system_clipboard
-"sudo apt-get install xclip
+" http://vim.wikia.com/wiki/In_line_copy_and_paste_to_system_clipboard
+" sudo apt-get install xclip
+" Doesn't seem to hurt MacVim
 vmap <C-c> y: call system("xclip -i -selection clipboard", getreg("\""))<CR>
 nmap <C-v> :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
@@ -140,11 +142,41 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" if you ever actually need to type \ in insert mode, this is a problem
+" it's a shortcut to close the code-complete window.
+" well, maybe you have a different <leader> so .. hrm
+" TODO
+inoremap <leader>q <ESC>:pc<Return>i<right>
+" and the same for visual mode
+noremap <leader>q :pc<Return>
+
+" no beeps
+set vb
+" show column number
+set ruler
+
+" always trim trailing whitespace .. is there ever a good reason?
+autocmd BufWritePre * :%s/\s\+$//e
+
+" Khuno
+noremap <F7> :Khuno show<Return>
+
+" http://sontek.net/blog/detail/turning-vim-into-a-modern-python-ide#virtualenv
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
+
+
 " for things that are particular to this user/computer,
 " you can add commands to a .local_vim file in your home dir
 " and uncommenting the following
 " source .local_vim
-
-set vb
-
 
