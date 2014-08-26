@@ -29,7 +29,7 @@ fu Select_c_style()
     if search('^\t', 'n', 150)
         set shiftwidth=8
         set noexpandtab
-    el 
+    el
         set shiftwidth=4
         set expandtab
     en
@@ -74,7 +74,7 @@ au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
 " The following section contains suggested settings.  While in no way required
 " to meet coding standards, they are helpful.
 
-" Set the default file encoding to UTF-8: 
+" Set the default file encoding to UTF-8:
 set encoding=utf-8
 
 " Puts a marker at the beginning of the file to differentiate between UTF and
@@ -85,12 +85,12 @@ set encoding=utf-8
 let python_highlight_all=1
 syntax on
 
-" Automatically indent based on file type: 
+" Automatically indent based on file type:
 "filetype indent on
-" Keep indentation level from previous line: 
+" Keep indentation level from previous line:
 "set autoindent
 
-" Folding based on indentation: 
+" Folding based on indentation:
 set foldmethod=indent
 set nofoldenable
 
@@ -111,6 +111,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " setlocal tabstop=4
 set softtabstop=4
+" I like hitting tab and getting two spaces
+au BufRead,BufNewFile *.js,*.html,*.css set softtabstop=2
 " setlocal shiftwidth=4
 " setlocal textwidth=80
 " setlocal smarttab
